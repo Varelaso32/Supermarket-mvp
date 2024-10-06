@@ -16,5 +16,15 @@ namespace Supermarket_mvp.View
         {
             InitializeComponent();
         }
+
+        private void PayModeView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnNew_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
