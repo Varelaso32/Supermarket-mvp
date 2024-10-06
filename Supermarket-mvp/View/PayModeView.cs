@@ -7,20 +7,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Supermarket_mvp.Models;
 
 namespace Supermarket_mvp.View
 {
-    public partial class PayModeView : Form
+    public partial class PayModeView : Form, IPayModeView
     {
+        private bool isEdit;
+        private bool isSuccessful;
+        private string message;
+
         public PayModeView()
         {
             InitializeComponent();
         }
 
+        public string PayModeId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PayModeName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PayModeObservation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string SearchValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool IsEdit { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool IsSuccessful { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Message { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public event EventHandler SearchEvent;
+        public event EventHandler AddNewEvent;
+        public event EventHandler EditEvent;
+        public event EventHandler DeletEvent;
+        public event EventHandler SaveEvent;
+        public event EventHandler CancelEvent;
+
         private void PayModeView_Load(object sender, EventArgs e)
         {
-
+            //////////////////////////////////////////////////
         }
+
+
+        public void SetPayModeListBildingSource(BindingSource payModeList)
+        {
+            DgPayMode.DataSource = payModeList;
+        }
+
+        /*public string PayModeId
+        {
+            get { return TxtPayModeId.Text; }
+            set { TxtPayModeId.Text = value }
+        }*/
+
+
+
+
+
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
