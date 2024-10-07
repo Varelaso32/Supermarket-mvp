@@ -17,19 +17,6 @@ namespace Supermarket_mvp.View
         private bool isSuccessful;
         private string message;
 
-        public PayModeView()
-        {
-            InitializeComponent();
-        }
-
-        public string PayModeId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string PayModeName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string PayModeObservation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string SearchValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsEdit { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsSuccessful { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Message { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
@@ -37,27 +24,81 @@ namespace Supermarket_mvp.View
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
-        private void PayModeView_Load(object sender, EventArgs e)
+        public PayModeView()
         {
-            //////////////////////////////////////////////////
-        }
+            InitializeComponent();
+            AssociateAndRaiseViewEvents();
+            //tabControl1.TabPages.Remove(tabPagePayModeDetail);
 
+        }//Fin de la clase
+
+        private void AssociateAndRaiseViewEvents()
+        {
+            BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            TxtSearch.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
+
+        }//Fin de la clase
 
         public void SetPayModeListBildingSource(BindingSource payModeList)
         {
             DgPayMode.DataSource = payModeList;
-        }
 
-        /*public string PayModeId
+        }//Fin de la clase
+
+        public string PayModeId
         {
             get { return TxtPayModeId.Text; }
-            set { TxtPayModeId.Text = value }
-        }*/
+            set { TxtPayModeId.Text = value; }
 
+        }//Fin de la clase
 
+        public string PayModeName
+        {
+            get { return TxtPayModeName.Text; }
+            set { TxtPayModeName.Text = value; }
 
+        }//Fin de la clase
 
+        public string PayModeObservation
+        {
+            get { return TxtPayModeObservation.Text; }
+            set { TxtPayModeObservation.Text = value; }
 
+        }//Fin de la clase
+
+        public string SearchValue
+        {
+            get { return TxtSearch.Text; }
+            set { TxtSearch.Text = value; }
+
+        }//Fin de la clase
+
+        public bool IsEdit
+        {
+            get { return isEdit; }
+            set { isEdit = value; }
+
+        }//Fin de la clase
+
+        public bool IsSuccessful
+        {
+            get { return isSuccessful; }
+            set { isSuccessful = value; }
+
+        }//Fin de la clase
+
+        public string Message
+        {
+            get { return message; }
+            set { message = value; }
+
+        }//Fin de la clase
 
         private void BtnNew_Click(object sender, EventArgs e)
         {

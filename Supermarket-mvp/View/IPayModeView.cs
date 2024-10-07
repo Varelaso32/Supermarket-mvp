@@ -27,5 +27,5 @@ namespace Supermarket_mvp.View
         void SetPayModeListBildingSource(BindingSource payModeList);
         void Show();
 
-    }
+    }//Fin de la clase
 }
